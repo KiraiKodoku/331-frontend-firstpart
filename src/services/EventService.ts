@@ -24,4 +24,17 @@ export default {
       '/events?title=' + encodeURIComponent(keyword) + '&_limit=' + perPage + '&_page=' + page,
     )
   },
+  getEventImages(images: string[]) {
+    return Promise.all(
+      images.map((image) =>
+        apiClient
+          .get<string>('/presignedUrl', {
+            params: { key: image },
+            responseType: 'text',
+          })
+          .then((response) => response.data),
+      ),
+    )
+  },
 }
+

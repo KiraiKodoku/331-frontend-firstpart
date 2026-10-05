@@ -11,6 +11,8 @@ import NetworkErrorView from '@/views/NetworkErrorView.vue'
 import AddEventView from '@/views/event/EventFormView.vue'
 import AddOrganizerView from '@/views/organizer/OrganizerFormView.vue'
 import AuctionListView from '@/views/AuctionListView.vue'
+import OrganizerFormView from '@/views/organizer/OrganizerFormView.vue'
+import OrganizerDetailView from '@/views/organizer/OrganizerDetailView.vue'
 import nProgress from 'nprogress'
 import { useEventStore } from '@/stores/event'
 const router = createRouter({
@@ -37,10 +39,20 @@ const router = createRouter({
       name: 'add-organizer',
       component: AddOrganizerView,
     },
+    { path: '/add-organizer',
+      name: 'add-organizer',
+      component: OrganizerFormView
+    },
+    { path: '/organizer/:id',
+      name: 'organizer-detail-view',
+      component: OrganizerDetailView,
+      props: true
+    },
     { path: '/auction',
       name: 'auction-list-view',
       component: AuctionListView },
     {
+
       path: '/event/:id',
       name: 'event-layout-view',
       component: EventLayoutView,

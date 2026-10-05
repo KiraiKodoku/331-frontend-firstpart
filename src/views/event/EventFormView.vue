@@ -14,7 +14,8 @@ const event = ref<Event>({
   date: '',
   time: '',
   petsAllowed: false,
-  organizer: ''
+  organizer:  { id: 0, name:'' },
+  images: [],
 })
 
 const organizers = ref<Organizer[]>([])
@@ -63,6 +64,8 @@ function saveEvent() {
              class="h-13 w-1/4 px-2.5 text-xl border border-gray-400
              focus:border-emerald-500 focus:outline-none mb-6"/>
       <h3>Where is your event?</h3>
+      <h3>The image of the Event</h3>
+      <ImageUpload v-model="event.images" />
       <label class="block text-gray-500 font-bold">Location</label>
       <input v-model="event.location" type="text" placeholder="Location"
              class="h-13 w-1/4 px-2.5 text-xl border border-gray-400

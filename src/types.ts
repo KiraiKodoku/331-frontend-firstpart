@@ -8,6 +8,7 @@ export interface Event {
   time: string
   petsAllowed: boolean
   organizer: Organizer
+  images: string[]
 }
 
 export interface MessageState {
@@ -21,4 +22,5 @@ export interface EventState {
 export interface Organizer {
   id: number
   name: string
+  image?: string
 }
