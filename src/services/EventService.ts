@@ -18,5 +18,10 @@ export default {
   },
   saveEvent(event:Event) {
     return apiClient.post('/events', event)
-  }
+  },
+  getEventsByKeyword(keyword: string, perPage: number, page: number) {
+    return apiClient.get(
+      '/events?title=' + encodeURIComponent(keyword) + '&_limit=' + perPage + '&_page=' + page,
+    )
+  },
 }
